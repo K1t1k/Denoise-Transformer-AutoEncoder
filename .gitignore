@@ -1,5 +1,7 @@
 .vscode
+.idea
 __pycache__
 data/
 *.npy
 *.pth
+.DS_Store

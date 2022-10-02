@@ -28,13 +28,12 @@ def get_data():
 
 class SingleDataset(Dataset):
     def __init__(self, x, is_sparse=False):
-        self.x = x.astype('float32')
+        self.x = x.astype('float32')  # 32
         self.is_sparse = is_sparse
 
     def __len__(self):
         return self.x.shape[0]
 
     def __getitem__(self, index):
-        x = self.x[index]
-        if self.is_sparse: x = x.toarray().squeeze()
-        return x    
+        x = self.x[index] if not self.is_sparse else self.x.toarray().squeeze()
+        return x
